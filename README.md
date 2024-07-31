@@ -1,13 +1,19 @@
 
 # Running the Project
 
-First, navigate to the project root and install the dependencies:
+First, ensure you are using node version 18.17 or higher:
+
+```bash
+node -v
+```
+
+Then, navigate to the project root and install the dependencies:
 
 ```bash
 npm install
 ```
 
-Then, run the development server:
+Finally, run the development server:
 
 ```bash
 npm run dev

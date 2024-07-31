@@ -13,13 +13,14 @@ import UserInfoForm from "@/app/components/forms/user-info-form";
 import IAutoCompleteOption from "@/app/interfaces/IAutoCompleteOption";
 import PokemonApiService from "@/app/services/pokemon-api.service";
 import usePokemonStore from "@/app/stores/pokemon-store";
+import PokemonDetail from "@/app/components/pokemon-detail";
 
 export default  async function FavoritePage() {
 
     const pokemon: IAutoCompleteOption[] = await PokemonApiService.getAllPokemon();
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" sx={{marginTop: 8}}>
             <Box
                 sx={{
                     marginTop: 4,
@@ -37,7 +38,7 @@ export default  async function FavoritePage() {
                 </Typography>
 
                 <UserInfoForm pokemon={pokemon}  />
-
+                <PokemonDetail />
             </Box>
         </Container>
     );

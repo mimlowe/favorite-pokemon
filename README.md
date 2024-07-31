@@ -64,7 +64,13 @@ It uses the [Material UI Autocomplete Component](https://mui.com/material-ui/rea
 When the user selects a Pokémon, the PokeAPI is called to fetch all the data for that Pokémon.
 The`store` is then updated with the selected Pokémon's data.
 
-Once the data is fetched, the image is displayed. If the data is missing an image, a warning message is displayed instead.
+---
+
+### PokemonDetail Component
+
+This component displays the details of the selected Pokémon. Currently, this is an image of the Pokémon.
+
+It uses the selected Pokémon's data from the `store` to display the image.
 
 ---
 

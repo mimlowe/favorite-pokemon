@@ -25,15 +25,13 @@ function MenuBar(props:{title: string}) {
     }
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" >
             <Container maxWidth="xl">
-                <Toolbar disableGutters>
+                <Toolbar>
                     <Typography
                         variant="h5"
                         noWrap
-                        component="a"
                         sx={{
-                            mr: 2,
                             display: { xs: 'flex' },
                             flexGrow: 1,
                             justifyContent: 'center',

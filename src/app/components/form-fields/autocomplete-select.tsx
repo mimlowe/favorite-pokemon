@@ -28,7 +28,7 @@ export default function AutoCompleteSelect(props:{options: IAutoCompleteOption[]
      */
     const setFavoritePokemon = usePokemonStore(state => state.setFavorite);
     const setFavoritePokemonData = usePokemonStore(state => state.setFavoriteData);
-    const getFavoritePokemonData = usePokemonStore(state => state.pokemonData);
+
 
     /**
      * Select Handler, this function will be called when the user selects a Pokémon from the dropdown.
@@ -49,41 +49,9 @@ export default function AutoCompleteSelect(props:{options: IAutoCompleteOption[]
         }
     }
 
-    /**
-     * Render method for the Pokémon data.
-     * If an image was not found, it will display a warning.
-     */
-    const renderPokemonData = () => {
-        if(getFavoritePokemonData) {
-            // In this case, the API is missing image data for the Pokémon.
-            if (!getFavoritePokemonData.sprites.front_default) {
-                return(
-                    <Alert severity="warning">Image is missing for this Pokémon</Alert>
-                )
-            }
-            return (
-                <Box
-                    sx={{
-                        marginTop: 4,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                    }}
-                >
-                    <Image
-                        src={getFavoritePokemonData.sprites.front_default}
-                        alt={getFavoritePokemonData?.name}
-                        width={200}
-                        height={200}
-                    />
-                </Box>
-            )
-        }
-        return (<></>);
-    }
+
 
     return (
-        <>
 
         <Autocomplete
             id="autocomplete-field"
@@ -93,13 +61,9 @@ export default function AutoCompleteSelect(props:{options: IAutoCompleteOption[]
             getOptionLabel={(option) => { return option.label}}
             defaultValue={props.value}
             renderInput={(params) => <TextField autoFocus={true} fullWidth={true} {...params} label={props.label} />}
-
         />
-            {
-                renderPokemonData()
-            }
 
-        </>
+
     );
 }
 

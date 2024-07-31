@@ -36,6 +36,7 @@ The store is used to save information submitted by the user, as well as Pokémon
 It uses the `persist` middleware to save the store to `localStorage`.
 This allows the app to maintain a persistent state when revisiting the page.
 
+---
 
 ### UserInfoForm Component
 
@@ -44,6 +45,8 @@ When the user submits their `firstName`, `lastName`, and `email`, the `store` is
 
 After submitting this form, as long as the `store` contains user data, each subsequent visit to the app will immediately display the Pokémon selection dropdown.
 
+---
+
 ### PokemonSelection Component
 
 This component displays a dropdown list of Pokémon fetched from the Pokémon API.
@@ -51,6 +54,8 @@ It uses the [Material UI Autocomplete Component](https://mui.com/material-ui/rea
 
 When the user selects a Pokémon, the PokeAPI is called to fetch all the data for that Pokémon.
 The`store` is then updated with the selected Pokémon's data.
+
+---
 
 ### Menu Component
 

@@ -1,66 +1,58 @@
-# EarnUp Take Home Test
 
-## Instructions
-For our take home test we want you to create a NextJS application that serves a PWA with three steps:
-
-1. A form (using react-hook-form) that asks people for their name and email
-
-2. A second form that asks them for their favorite pokemon.
-
-3. Display the image and name of their favorite pokemon.
-
-
-### Data
-To get the list of pokemon (and their images) please use the pokemon api (https://pokeapi.co/) from the NextJS app and populate a drop down with the list of pokemon.
-
-
-### Requirements:
-
-1. Please use MaterialUI for styling.
-2. Have the form be 
-   1. Submittable, store the data however you would like
-   2. Display the picture of the selected pokemon after the second form is submitted.
-   3. On page reload, the page should remember which pokemon they selected.
-3. The UI should be, at least minimally, responsive.
-
-Please host your code on github or another git service with instructions for running your app.
-
----
 # Running the Project
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+First, navigate to the project root and install the dependencies:
 
-## Getting Started
+```bash
+npm install
+```
 
-First, run the development server:
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The project is structured as follows:
 
-## Learn More
+- `components/`: Contains all the app components used in the project.
+- `interfaces/`: Contains all the interfaces used in the project.
+- `services/`: Contains the `pokemon-api.service` used to fetch data from the [Pokémon API](https://pokeapi.co/).
+- `stores/`: Contains a `zustand` store used to manage the state of the app.
 
-To learn more about Next.js, take a look at the following resources:
+- The app uses a single `page` component, located at `./page.tsx`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Key Features and Design Decisions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### State Management
 
-## Deploy on Vercel
+The application uses a simple [zustand](https://github.com/pmndrs/zustand) store to manage the state of the app. 
+The store is used to store information submitted by the user, as well as Pokémon data fetched from the Pokémon API.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This allows the app to maintain a persistent state when revisiting the page.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+### UserInfoForm Component
+
+This form is required in order to allow the user to select their favorite Pokémon.
+When the user submits their `firstName`, `lastName`, and `email`, the `store` is updated.
+
+After submitting this form, each subsequent visit to the app will immediately display the Pokémon selection dropdown.
+
+### PokemonSelection Component
+
+This component displays a dropdown list of Pokémon fetched from the Pokémon API.
+It uses the [Material UI Autocomplete Component](https://mui.com/material-ui/react-autocomplete/)  to allow the user to search the list of Pokémon.
+
+When the user selects a Pokémon, the PokeAPI is called to fetch all the data for that Pokémon.
+The`store` is then updated with the selected Pokémon's data.
+
+### Menu Component
+
+The menu component includes a button to reset the application state.
+This allows the user to submit a new `UserInfoForm`.
+

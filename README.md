@@ -66,6 +66,8 @@ It uses the [Material UI Autocomplete Component](https://mui.com/material-ui/rea
 When the user selects a Pokémon, the PokeAPI is called to fetch all the data for that Pokémon.
 The`store` is then updated with the selected Pokémon's data.
 
+The stored data is of type  [IPokemon](https://github.com/monbrey/pokeapi-typescript/blob/master/src/interfaces/Pokemon/Pokemon.ts), from the `pokeapi-typescript` package.
+
 ---
 
 ### PokemonDetail Component

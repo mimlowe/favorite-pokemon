@@ -31,8 +31,9 @@ The project is structured as follows:
 ### State Management
 
 The application uses a simple [zustand](https://github.com/pmndrs/zustand) store to manage the state of the app. 
-The store is used to store information submitted by the user, as well as Pokémon data fetched from the Pokémon API.
+The store is used to save information submitted by the user, as well as Pokémon data fetched from the Pokémon API.
 
+It uses the `persist` middleware to save the store to `localStorage`.
 This allows the app to maintain a persistent state when revisiting the page.
 
 
@@ -41,7 +42,7 @@ This allows the app to maintain a persistent state when revisiting the page.
 This form is required in order to allow the user to select their favorite Pokémon.
 When the user submits their `firstName`, `lastName`, and `email`, the `store` is updated.
 
-After submitting this form, each subsequent visit to the app will immediately display the Pokémon selection dropdown.
+After submitting this form, as long as the `store` contains user data, each subsequent visit to the app will immediately display the Pokémon selection dropdown.
 
 ### PokemonSelection Component
 

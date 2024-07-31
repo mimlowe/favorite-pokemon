@@ -3,12 +3,7 @@ import React from 'react'
 /**
  * Material UI Components
  */
-import {Alert, Autocomplete, TextField} from "@mui/material";
-import Box from "@mui/material/Box";
-/**
- * Next Components
- */
-import Image from "next/image";
+import {Autocomplete, TextField} from "@mui/material";
 /**
  * Stores
  */

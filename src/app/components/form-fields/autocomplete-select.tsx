@@ -15,6 +15,8 @@ import Image from "next/image";
 import usePokemonStore from "@/app/stores/pokemon-store";
 /**Interfaces */
 import IAutoCompleteOption from "@/app/interfaces/IAutoCompleteOption";
+import PokemonApiService from "@/app/services/pokemon-api.service";
+import {IPokemon} from "pokeapi-typescript";
 
 /**
  * AutoCompleteSelect, this is the dropdown component that will be used to select the user's favorite Pokémon.
@@ -39,8 +41,7 @@ export default function AutoCompleteSelect(props:{options: IAutoCompleteOption[]
     const selectHandler = async (event: React.ChangeEvent<{}>, value: IAutoCompleteOption | null) => {
         if (value) {
             setFavoritePokemon(value);
-            const pokemonData = await fetch(`https://pokeapi.co/api/v2/pokemon/${value.id}`);
-            const pokemon = await pokemonData.json();
+            const pokemon: IPokemon = await PokemonApiService.getPokemon(value.id)
             setFavoritePokemonData(pokemon);
         }
 

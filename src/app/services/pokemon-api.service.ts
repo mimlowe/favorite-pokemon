@@ -1,8 +1,9 @@
 /**
  * Interfaces
  */
-import IPokemon from '../interfaces/IPokemon';
+import {IPokemon} from "pokeapi-typescript"
 import IAutoCompleteOption from "../interfaces/IAutoCompleteOption";
+import IPokemonListItem from "@/app/interfaces/IPokemonListItem";
 
 /**
  * A service for fetching Pokémon data from the PokeAPI
@@ -16,7 +17,7 @@ export default class PokemonApiService {
     static async getAllPokemon(): Promise<IAutoCompleteOption[]> {
         const response: Response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1302');
         const data = await response.json();
-        return data.results.map((pokemon: IPokemon): IAutoCompleteOption => {
+        return data.results.map((pokemon: IPokemonListItem): IAutoCompleteOption => {
             // Extract the id from the Pokémon's url field, we'll use this as the key for this option.
             const id: string = pokemon.url.split('/')[6];
             return {

@@ -1,4 +1,4 @@
 export * from './IAutoCompleteOption';
-export * from './IPokemon';
+export * from './IPokemonListItem';
 export * from './IUserFormInput';
 export * from './IPokemonStore'

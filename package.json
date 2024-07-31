@@ -16,6 +16,7 @@
     "@mui/material": "^5.16.5",
     "@mui/material-nextjs": "^5.16.4",
     "next": "14.2.5",
+    "pokeapi-typescript": "^2.1.0",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.52.1",

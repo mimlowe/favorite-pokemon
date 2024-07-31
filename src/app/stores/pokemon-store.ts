@@ -9,7 +9,6 @@ import { persist, createJSONStorage } from 'zustand/middleware'
 import {IPokemonStore} from "@/app/interfaces";
 
 
-
 /**
  * A store for managing User & Pokémon data
  * These values are synchronized with localStorage

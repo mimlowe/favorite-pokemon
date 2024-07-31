@@ -21,6 +21,8 @@ The project is structured as follows:
 
 - `components/`: Contains all the app components used in the project.
 - `interfaces/`: Contains all the interfaces used in the project.
+  - In addition to the interfaces defined here, there is a dependency called `pokeapi-typescript`. 
+  - We're primarily interested in the [IPokemon](https://github.com/monbrey/pokeapi-typescript/blob/master/src/interfaces/Pokemon/Pokemon.ts) interface, which provides complete typing for individual Pokémon Data. 
 - `services/`: Contains the `pokemon-api.service` used to fetch data from the [Pokémon API](https://pokeapi.co/).
 - `stores/`: Contains a `zustand` store used to manage the state of the app.
 

@@ -28,6 +28,15 @@ The project is structured as follows:
 
 # Key Features and Design Decisions
 
+### Main Page Component
+
+The main page component is a server-side, asynchronous, functional Component that can be used to fetch data before rendering the page.
+
+
+This is where the Pokémon list data is fetched from the Pokémon API.
+
+---
+
 ### State Management
 
 The application uses a simple [zustand](https://github.com/pmndrs/zustand) store to manage the state of the app. 

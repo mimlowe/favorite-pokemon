@@ -1,3 +1,7 @@
+# Favorite Pokémon
+
+[<img src="demo1.png" width="300"/>](demo1.png)
+[<img src="demo2.png" width="300"/>](demo2.png)
 
 # Running the Project
 
